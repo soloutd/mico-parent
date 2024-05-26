@@ -81,18 +81,16 @@ public class OrderServices {
                 .bodyToMono(InventoryResponse[].class)
                 .block();
 
+        assert inventoryResponseArray != null;
         boolean allProductsInStock = Arrays.stream(inventoryResponseArray)
                 .allMatch(InventoryResponse::isInStock);
-
-
-
         if (allProductsInStock) {
             orderRepository.save(order);
-        }else {
-            throw new IllegalArgumentException("-----bad request: Product not in stock!!!");
+        } else {
+            throw new IllegalArgumentException("-----bad request: Product not in stock! Try a different skuCode!");
         }
-    }
 
+    }
 
 
     public Order createOrder(RequestOrder requestOrder) {
