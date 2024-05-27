@@ -36,9 +36,4 @@ public class InventoryController {
         return inventoryServices.checkInStock(skuCode);
     }
 
-    //@GetMapping(value = "/hello")
-    public String hello() {
-        log.info("hello------------------>  ");
-        return "Hello World!";
-    }
 }
