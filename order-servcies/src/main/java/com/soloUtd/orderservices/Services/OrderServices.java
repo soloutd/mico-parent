@@ -87,7 +87,7 @@ public class OrderServices {
         if (allProductsInStock) {
             orderRepository.save(order);
         } else {
-            throw new IllegalArgumentException("-----bad request: Product not in stock! Try a different skuCode!");
+            throw new IllegalArgumentException("Bad request: Product not in stock! Try a different skuCode!");
         }
 
     }
